@@ -1,0 +1,34 @@
+{
+  "schema_version": "exact-additive-knn-v3",
+  "additive_cache_manifest": {
+    "schema_version": "additive-landmark-v3",
+    "source_hash": "68787e275b9e9736eb482a81e3249c6b73cc6556ee993db745f6828f0c703ea8",
+    "landmark_count": 512,
+    "component_names": [
+      "anion_group",
+      "cations",
+      "extra_anions",
+      "hydration",
+      "structural_water",
+      "structure"
+    ],
+    "component_weights": {
+      "anion_group": 0.43,
+      "cations": 0.33,
+      "extra_anions": 0.12,
+      "hydration": 0.05,
+      "structural_water": 0.05,
+      "structure": 0.02
+    },
+    "formula_water_policy": "dotted water is hydration; parenthesized/bracketed water is structural water"
+  },
+  "component_weights": {
+    "anion_group": 0.43,
+    "cations": 0.33,
+    "extra_anions": 0.12,
+    "hydration": 0.05,
+    "structural_water": 0.05,
+    "structure": 0.02
+  },
+  "neighbors_per_mineral": 10
+}

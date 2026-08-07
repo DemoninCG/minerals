@@ -1,0 +1,23 @@
+# Environment / secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Large regenerated caches (local-only; manifest-validated rebuilds are cheap)
+additive_exact_distances_v3.npy
+additive_exact_distances_v3_progress.npy
+
+# Raw Mindat API downloads (reproducible via fetch_mindat_data.py; not for redistribution)
+mindat_export/
+
+# Node / Vite
+node_modules/
+mineral-map/dist/
+
+# OS cruft
+Thumbs.db
+.DS_Store

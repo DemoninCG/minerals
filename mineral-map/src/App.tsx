@@ -536,6 +536,9 @@ function App() {
             <span>Drag to rotate · scroll to zoom · right-drag to pan</span>
           </div>
           <div className="map-overlay map-status">{nodes.length ? `${nodes.length.toLocaleString()} nodes · ${colorMode === 'strunzMindat' ? `${mindatClassifiedCount.toLocaleString()} Strunz–Mindat classified` : colorMode === 'dana' ? `${danaClassifiedCount.toLocaleString()} Dana classified` : colorMode === 'year' ? 'publication year gradient' : colorMode === 'hardness' ? 'average hardness gradient' : `${selectedElement}-bearing highlighted`}` : 'Loading nodes'}</div>
+          <div className="map-overlay map-attribution">
+            Data: IMA list of approved minerals · classifications &amp; properties via <a href="https://www.mindat.org" target="_blank" rel="noreferrer">mindat.org</a>
+          </div>
         </div>
 
         <aside className="detail-panel">

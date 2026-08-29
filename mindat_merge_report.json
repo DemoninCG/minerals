@@ -1,7 +1,7 @@
 {
-  "source_file": "C:\\My Things\\HTML\\Demonin's Item Shop\\other\\minerals\\IMA_data.csv",
-  "mindat_batch_directory": "C:\\My Things\\HTML\\Demonin's Item Shop\\other\\minerals\\mindat_export\\ima_geomaterial_batches",
-  "output_file": "C:\\My Things\\HTML\\Demonin's Item Shop\\other\\minerals\\IMA_data_with_mindat.csv",
+  "source_file": "IMA_data.csv",
+  "mindat_batch_directory": "mindat_export/ima_geomaterial_batches",
+  "output_file": "IMA_data_with_mindat.csv",
   "source_rows": 6228,
   "mindat_records": 6239,
   "matched_rows": 6228,

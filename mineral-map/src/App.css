@@ -26,6 +26,8 @@
 .map-overlay { position: absolute; z-index: 1; color: #c4d0c0; background: rgb(23 30 26 / 86%); border: 1px solid rgb(77 94 80 / 70%); font: 12px 'Trebuchet MS', sans-serif; backdrop-filter: blur(5px); }
 .map-key { left: 17px; bottom: 17px; display: flex; align-items: center; gap: 7px; padding: 9px 10px; }
 .map-status { top: 17px; left: 17px; padding: 6px 9px; }
+.map-attribution { bottom: 17px; right: 17px; padding: 6px 9px; }
+.map-attribution a { color: #9cc48f; }
 .detail-panel { overflow-y: auto; padding: 22px; background: #171e1a; }
 .panel-heading { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 17px; border-bottom: 1px solid #344138; }
 .eyebrow { margin: 0 0 5px; color: #9aad96; font: 11px 'Trebuchet MS', sans-serif; text-transform: uppercase; }

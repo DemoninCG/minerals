@@ -1,6 +1,6 @@
 """Merge downloaded Mindat fields into the local IMA mineral table by name.
 
-Reads raw records created by ``main.py`` from
+Reads raw records created by ``fetch_mindat_data.py`` from
 ``mindat_export/ima_geomaterial_batches``. By default, output contains only
 minerals with a Mindat name match; the original ``IMA_data.csv`` is never
 modified. Name comparison normalizes case, Unicode accents, punctuation, and

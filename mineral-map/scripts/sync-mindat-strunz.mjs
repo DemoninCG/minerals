@@ -4,7 +4,6 @@ import { parse } from 'csv-parse/sync'
 
 const appRoot = resolve(import.meta.dirname, '..')
 const nodesPath = resolve(appRoot, 'public/data/mineral-map-nodes.json')
-const webExportNodesPath = resolve(appRoot, '../web_export/mineral-map-nodes.json')
 const sourcePath = resolve(appRoot, '../IMA_data_with_mindat.csv')
 const classificationsPath = resolve(appRoot, '../mindat_export/classifications')
 
@@ -152,8 +151,5 @@ payload.nodes.forEach((node, index) => {
 })
 
 const output = `${JSON.stringify(payload)}\n`
-await Promise.all([
-  writeFile(nodesPath, output, 'utf8'),
-  writeFile(webExportNodesPath, output, 'utf8'),
-])
-console.log(`Added Strunz–Mindat classifications to ${classified.toLocaleString()}, Dana classifications to ${danaClassified.toLocaleString()}, and hardness ranges to ${hardnessAvailable.toLocaleString()} of ${payload.nodes.length.toLocaleString()} nodes, then synchronized the web export.`)
+await writeFile(nodesPath, output, 'utf8')
+console.log(`Added Strunz–Mindat classifications to ${classified.toLocaleString()}, Dana classifications to ${danaClassified.toLocaleString()}, and hardness ranges to ${hardnessAvailable.toLocaleString()} of ${payload.nodes.length.toLocaleString()} nodes.`)

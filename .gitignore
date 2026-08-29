@@ -18,6 +18,9 @@ mindat_export/
 node_modules/
 mineral-map/dist/
 
+# Generated deployable site (npm run build:site)
+mineral-map-site/
+
 # OS cruft
 Thumbs.db
 .DS_Store

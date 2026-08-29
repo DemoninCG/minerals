@@ -78,6 +78,18 @@ npm run dev            # start the dev server
 
 The app fetches three static JSON files from `public/data/`; the notebook writes them there directly, so a full re-run of the pipeline above regenerates everything.
 
+### Standalone static deployment
+
+The frontend is fully static and can be deployed anywhere (e.g. Cloudflare Pages connected to a separate repository):
+
+```bash
+cd mineral-map
+npm run build:site                                  # build → ../mineral-map-site/
+DEPLOY_BASE_PATH=/minerals/ npm run build:site      # if deploying under a subpath
+```
+
+Copy the contents of `mineral-map-site/` into your hosting repository and commit. See `mineral-map/README.md` for details.
+
 ## Data provenance & licensing
 
 - **Mineral list and chemistry**: the [IMA list of approved minerals](https://ima-minerals.org/), as distributed with the RRUFF database project.

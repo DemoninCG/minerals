@@ -424,8 +424,8 @@ function App() {
 
   useEffect(() => {
     Promise.all([
-      fetch('/data/mineral-map-nodes.json').then((response) => response.json() as Promise<NodePayload>),
-      fetch('/data/mineral-map-metadata.json').then((response) => response.json() as Promise<MetadataPayload>),
+      fetch(`${import.meta.env.BASE_URL}data/mineral-map-nodes.json`).then((response) => response.json() as Promise<NodePayload>),
+      fetch(`${import.meta.env.BASE_URL}data/mineral-map-metadata.json`).then((response) => response.json() as Promise<MetadataPayload>),
     ])
       .then(([nodeData, metadataData]) => {
         setNodes(nodeData.nodes.map((node) => ({ ...node, coordinates: scaleCoordinates(node.coordinates) })))
@@ -436,7 +436,7 @@ function App() {
 
   useEffect(() => {
     if ((selectedId === null && linkMode !== 'all') || neighbors) return
-    fetch('/data/mineral-map-neighbors.json')
+    fetch(`${import.meta.env.BASE_URL}data/mineral-map-neighbors.json`)
       .then((response) => response.json() as Promise<NeighborPayload>)
       .then(setNeighbors)
       .catch(() => setLoadError('Unable to load mineral neighbour data.'))

@@ -24,6 +24,19 @@ npm run build          # type-check + production build to dist/
 npm run preview        # serve the production build
 ```
 
+## Deploying as a standalone static site
+
+The app is fully static — no server, no API. Build a copy-ready deployable folder with:
+
+```bash
+npm run build:site                       # domain/subdomain root deployment
+DEPLOY_BASE_PATH=/minerals/ npm run build:site   # subpath deployment (e.g. yoursite.com/minerals/)
+```
+
+The script builds the app and assembles everything into `../mineral-map-site/` at the repository root: `index.html`, hashed `assets/`, the three data JSONs, and the favicon. Copy the **contents** of that folder into your hosting repository and commit — on Cloudflare Pages (or any static host) the site updates live.
+
+> If you deploy under a subpath, the `DEPLOY_BASE_PATH` value **must exactly match** the folder name on the server, including leading and trailing slashes (e.g. `/minerals/` ↔ `yoursite.com/minerals/`).
+
 ## Stack
 
 - [React 19](https://react.dev) + [Vite](https://vite.dev)

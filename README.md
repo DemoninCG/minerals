@@ -55,7 +55,7 @@ python -m venv .venv
 .venv\Scripts\activate            # Windows (source .venv/bin/activate on Unix)
 pip install -r requirements.txt
 
-# 1. Download raw data from mindat.org (needs a free API key in .env — see below)
+# 1. Download raw data from mindat.org (needs a free API key in .env, see below)
 python fetch_mindat_data.py
 
 # 2. Merge Mindat records into the IMA CSV

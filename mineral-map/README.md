@@ -1,4 +1,4 @@
-# IMA Mineral Map — frontend
+# IMA Mineral Map: frontend
 
 React + Vite + three.js frontend for the [IMA Mineral Map](../README.md). Renders all 6,228 IMA-approved minerals as an interactive 3D point cloud with a relationship inspector for the compositional k-NN graph.
 
@@ -12,7 +12,7 @@ The app fetches three static JSON files from `public/data/`:
 | `mineral-map-neighbors.json` | The exact 10-NN graph with per-component distance decompositions and relationship categories (lazy-loaded) |
 | `mineral-map-metadata.json` | Node count, component weights, relationship-category descriptions |
 
-These files are written by `analysis.ipynb` in the repository root — there is no other data source. The neighbors file is ~24 MB, so the first node selection may take a moment while it loads.
+These files are written by `analysis.ipynb` in the repository root, there is no other data source. The neighbors file is ~24 MB, so the first node selection may take a moment while it loads.
 
 ## Development
 
@@ -26,14 +26,14 @@ npm run preview        # serve the production build
 
 ## Deploying as a standalone static site
 
-The app is fully static — no server, no API. Build a copy-ready deployable folder with:
+The app is fully static. Build a copy-ready deployable folder with:
 
 ```bash
 npm run build:site                       # domain/subdomain root deployment
 DEPLOY_BASE_PATH=/minerals/ npm run build:site   # subpath deployment (e.g. yoursite.com/minerals/)
 ```
 
-The script builds the app and assembles everything into `../mineral-map-site/` at the repository root: `index.html`, hashed `assets/`, the three data JSONs, and the favicon. Copy the **contents** of that folder into your hosting repository and commit — on Cloudflare Pages (or any static host) the site updates live.
+The script builds the app and assembles everything into `../mineral-map-site/` at the repository root: `index.html`, hashed `assets/`, the three data JSONs, and the favicon. Copy the **contents** of that folder into your hosting repository and commit on Cloudflare Pages (or any static host) the site updates live.
 
 > If you deploy under a subpath, the `DEPLOY_BASE_PATH` value **must exactly match** the folder name on the server, including leading and trailing slashes (e.g. `/minerals/` ↔ `yoursite.com/minerals/`).
 

@@ -390,7 +390,6 @@ function RelationshipInspector({ source, target, neighbor, categoryDescription, 
         <strong>{neighbor.distance.toFixed(3)}</strong>
       </div>
       <p className="relationship-description">{categoryDescription ?? 'Exact k-NN relationship classified from the additive component profile.'}</p>
-      <p className="relationship-note">Exact additive dissimilarity. The six weighted components below sum to the displayed score.</p>
       <div className="component-bars">
         {components.map(([component, value]) => {
           const share = value.weighted / total
@@ -415,8 +414,8 @@ function App() {
   const [selectedId, setSelectedId] = useState<number | null>(null)
   const [inspectedTargetId, setInspectedTargetId] = useState<number | null>(null)
   const [query, setQuery] = useState('')
-  const [linkMode, setLinkMode] = useState<LinkMode>('selected')
-  const [neighborLimit, setNeighborLimit] = useState(3)
+  const [linkMode, setLinkMode] = useState<LinkMode>('all')
+  const [neighborLimit, setNeighborLimit] = useState(5)
   const [colorMode, setColorMode] = useState<ColorMode>('strunzMindat')
   const [selectedElement, setSelectedElement] = useState('Fe')
   const [loadError, setLoadError] = useState<string | null>(null)
@@ -469,11 +468,7 @@ function App() {
     <main className="app-shell">
       <header className="topbar">
         <div className="brand">
-          <span className="brand-mark" aria-hidden="true">M</span>
-          <div>
-            <h1>IMA Mineral Map</h1>
-            <p>{metadata ? `${metadata.nodeCount.toLocaleString()} approved species` : 'Loading composition space...'}</p>
-          </div>
+          <h1>Demonin's IMA Mineral Map</h1>
         </div>
         <div className="search-wrap">
           <Search size={17} aria-hidden="true" />
@@ -536,9 +531,6 @@ function App() {
             <span>Drag to rotate · scroll to zoom · right-drag to pan</span>
           </div>
           <div className="map-overlay map-status">{nodes.length ? `${nodes.length.toLocaleString()} nodes · ${colorMode === 'strunzMindat' ? `${mindatClassifiedCount.toLocaleString()} Strunz–Mindat classified` : colorMode === 'dana' ? `${danaClassifiedCount.toLocaleString()} Dana classified` : colorMode === 'year' ? 'publication year gradient' : colorMode === 'hardness' ? 'average hardness gradient' : `${selectedElement}-bearing highlighted`}` : 'Loading nodes'}</div>
-          <div className="map-overlay map-attribution">
-            Data: IMA list of approved minerals · classifications &amp; properties via <a href="https://www.mindat.org" target="_blank" rel="noreferrer">mindat.org</a>
-          </div>
         </div>
 
         <aside className="detail-panel">
@@ -560,9 +552,9 @@ function App() {
                 <div className="strunz-mindat-fact"><dt>Dana 8</dt><dd><MindatDanaDescription classification={selectedNode.mindatDana} /></dd></div>
                 <div><dt>Structure</dt><dd>{selectedNode.structure.group}</dd></div>
                 <div><dt>Crystal system</dt><dd>{selectedNode.structure.crystalSystem}</dd></div>
-                <div><dt>IMA symbol</dt><dd>{selectedNode.symbol || '—'}</dd></div>
-                <div><dt>Published</dt><dd>{selectedNode.yearFirstPublished || '—'}</dd></div>
-                <div><dt>Hardness</dt><dd>{averageHardness(selectedNode)?.toFixed(2) ?? '—'}</dd></div>
+                <div><dt>IMA symbol</dt><dd>{selectedNode.symbol || '-'}</dd></div>
+                <div><dt>Published</dt><dd>{selectedNode.yearFirstPublished || '-'}</dd></div>
+                <div><dt>Hardness</dt><dd>{averageHardness(selectedNode)?.toFixed(2) ?? '-'}</dd></div>
               </dl>
 
               <section className="composition-section">
@@ -602,9 +594,8 @@ function App() {
             </>
           ) : (
             <div className="empty-selection">
-              <div className="empty-mark">◌</div>
               <h2>Explore composition space</h2>
-              <p>Select a mineral point or search by name to inspect its composition and exact nearest analogues.</p>
+              <p>Select a mineral point or search by name to inspect its composition and nearest analogues.</p>
               {colorMode === 'strunzMindat' && <p className="color-note">Broad hues show Mindat Strunz classes; ordered shades distinguish subclasses. Grey minerals have no Mindat Strunz classification.</p>}
               {colorMode === 'dana' && <p className="color-note">Broad hues show Dana classes; ordered shades distinguish Dana types. Grey minerals have no Dana classification.</p>}
               {colorMode === 'element' && <p className="color-note">{selectedElement}-bearing minerals are highlighted; all other nodes are grey.</p>}

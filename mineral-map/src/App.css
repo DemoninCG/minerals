@@ -20,15 +20,13 @@
 .link-select { max-width: 132px; padding: 0 24px 0 9px; }
 .neighbor-limit { display: flex; align-items: center; gap: 5px; padding: 0 7px; }
 .neighbor-limit select { border: 0; outline: 0; color: inherit; background: transparent; font: inherit; }
-.map-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; min-height: calc(100svh - 72px); }
+.map-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; grid-template-rows: minmax(0, 1fr); height: calc(100svh - 72px); overflow: hidden; }
 .scene-panel { position: relative; min-height: 640px; border-right: 1px solid #2e3a31; }
 .scene-panel canvas { position: absolute; inset: 0; }
 .map-overlay { position: absolute; z-index: 1; color: #c4d0c0; background: rgb(23 30 26 / 86%); border: 1px solid rgb(77 94 80 / 70%); font: 12px 'Trebuchet MS', sans-serif; backdrop-filter: blur(5px); }
 .map-key { left: 17px; bottom: 17px; display: flex; align-items: center; gap: 7px; padding: 9px 10px; }
 .map-status { top: 17px; left: 17px; padding: 6px 9px; }
-.map-attribution { bottom: 17px; right: 17px; padding: 6px 9px; }
-.map-attribution a { color: #9cc48f; }
-.detail-panel { overflow-y: auto; padding: 22px; background: #171e1a; }
+.detail-panel { overflow-y: auto; overscroll-behavior: contain; padding: 22px; background: #171e1a; }
 .panel-heading { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 17px; border-bottom: 1px solid #344138; }
 .eyebrow { margin: 0 0 5px; color: #9aad96; font: 11px 'Trebuchet MS', sans-serif; text-transform: uppercase; }
 .panel-heading h2, .empty-selection h2 { margin: 0; color: #edf4e9; font-size: 27px; line-height: 1.04; }
@@ -63,7 +61,6 @@
 .relationship-category { color: #dcebd7; font: 13px 'Trebuchet MS', sans-serif; text-transform: capitalize; }
 .relationship-summary strong { color: #f6e7ad; font: 18px 'Courier New', monospace; }
 .relationship-description { margin: 8px 0 0; color: #b7c7b3; font: 12px/1.5 'Trebuchet MS', sans-serif; }
-.relationship-note { margin: 9px 0 0; color: #82937e; font: 10px/1.45 'Trebuchet MS', sans-serif; }
 .component-bars { display: grid; gap: 10px; margin-top: 14px; }
 .component-bar > div:first-child { display: flex; justify-content: space-between; gap: 8px; color: #cdd9c9; font: 11px 'Trebuchet MS', sans-serif; }
 .component-bar b { color: #e9f0e5; font: 11px 'Courier New', monospace; }
@@ -73,7 +70,6 @@
 .inspect-target { width: 100%; margin-top: 16px; min-height: 34px; border: 1px solid #54715a; color: #e6f0df; background: #293a2d; font: 12px 'Trebuchet MS', sans-serif; }
 .inspect-target:hover { background: #354d3a; }
 .empty-selection { display: grid; align-content: center; min-height: calc(100svh - 116px); text-align: center; }
-.empty-mark { color: #a4bda0; font-size: 52px; line-height: 1; }
 .empty-selection h2 { margin-top: 14px; font-size: 24px; }
 .empty-selection p { margin: 12px auto 0; max-width: 265px; color: #a5b5a1; font: 13px/1.55 'Trebuchet MS', sans-serif; }
 .empty-selection .color-note { padding: 9px 11px; border: 1px solid #39483c; background: #202a22; color: #bdcfb8; font-size: 11px; line-height: 1.45; }
@@ -86,5 +82,5 @@
 .hardness-gradient { background: linear-gradient(90deg, #3979c9, #873eaa, #d63d4b); }
 .muted { color: #9aa996; font: 12px 'Trebuchet MS', sans-serif; }
 .error-message { padding: 10px; color: #ffc1b2; border: 1px solid #9b5044; background: #40251f; font: 13px 'Trebuchet MS', sans-serif; }
-@media (max-width: 980px) { .topbar { height: auto; grid-template-columns: 1fr auto auto; padding: 13px; } .search-wrap { grid-column: 1 / -1; grid-row: 2; } .map-layout { grid-template-columns: 1fr; } .scene-panel { min-height: 68svh; border-right: 0; border-bottom: 1px solid #c2c6b7; } .detail-panel { min-height: 430px; } .empty-selection { min-height: 360px; } }
+@media (max-width: 980px) { .topbar { height: auto; grid-template-columns: 1fr auto auto; padding: 13px; } .search-wrap { grid-column: 1 / -1; grid-row: 2; } .map-layout { grid-template-columns: 1fr; grid-template-rows: none; height: auto; overflow: visible; } .scene-panel { min-height: 68svh; border-right: 0; border-bottom: 1px solid #c2c6b7; } .detail-panel { min-height: 430px; overflow-y: visible; } .empty-selection { min-height: 360px; } }
 @media (max-width: 520px) { .topbar { gap: 9px; } .brand h1 { font-size: 16px; } .link-select { max-width: 92px; } .map-key { max-width: calc(100% - 34px); } .profile-row { grid-template-columns: 94px minmax(0, 1fr); } .map-controls { max-width: 165px; } .color-select { max-width: 110px; } }

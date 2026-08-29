@@ -35,12 +35,8 @@ run('npm', ['run', 'build'])
 if (existsSync(siteDir)) rmSync(siteDir, { recursive: true, force: true })
 mkdirSync(siteDir, { recursive: true })
 
-// dist/ already contains assets/ + data/ + index.html + favicon.svg — a
-// complete, self-contained static site. Copy it wholesale.
 cpSync(distDir, siteDir, { recursive: true })
 
-// Cloudflare Pages style: no server config needed — every file is static.
-// Add a minimal README so whoever opens the folder knows what it is.
 writeFileSync(
   resolve(siteDir, 'README.txt'),
   `Static build of the IMA Mineral Map frontend.\n` +

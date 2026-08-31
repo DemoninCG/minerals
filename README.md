@@ -85,7 +85,7 @@ The frontend is fully static and can be deployed anywhere (e.g. Cloudflare Pages
 ```bash
 cd mineral-map
 npm run build:site                                  # build → ../mineral-map-site/
-DEPLOY_BASE_PATH=/minerals/ npm run build:site      # if deploying under a subpath
+npm run build:site -- --base /other/minerals/       # if deploying under a subpath (works in PowerShell too)
 ```
 
 Copy the contents of `mineral-map-site/` into your hosting repository and commit. See `mineral-map/README.md` for details.

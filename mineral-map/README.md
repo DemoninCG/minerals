@@ -29,9 +29,12 @@ npm run preview        # serve the production build
 The app is fully static. Build a copy-ready deployable folder with:
 
 ```bash
-npm run build:site                       # domain/subdomain root deployment
-DEPLOY_BASE_PATH=/minerals/ npm run build:site   # subpath deployment (e.g. yoursite.com/minerals/)
+npm run build:site                                    # domain/subdomain root deployment
+npm run build:site -- --base /minerals/               # subpath deployment (PowerShell, cmd, and bash)
+npm run build:site -- --base /other/minerals/ --open  # subpath + open the output folder
 ```
+
+> **Shell note:** `DEPLOY_BASE_PATH=/x/ npm run build:site` only works in bash/zsh. In PowerShell or cmd, use the `--base` flag form shown above.
 
 The script builds the app and assembles everything into `../mineral-map-site/` at the repository root: `index.html`, hashed `assets/`, the three data JSONs, and the favicon. Copy the **contents** of that folder into your hosting repository and commit on Cloudflare Pages (or any static host) the site updates live.
 

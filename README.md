@@ -44,7 +44,7 @@ graph TD
     H --> I[React frontend<br/>3D point cloud + relationship inspector]
 ```
 
-The distance model represents each mineral as a sparse valence-chemistry profile and computes a weighted additive distance across six components. Nearest neighbours are computed exactly (all 6,228 × 6,228 pairs, cached in `additive_exact_distances_v3.npy`) and each edge is labelled with a relationship taxonomy derived from which components differ. Node coordinates come from a normalized force-directed layout of the exact graph.
+The distance model represents each mineral as a sparse valence-chemistry profile and computes a weighted additive distance across six components. Nearest neighbours are computed exactly (all 6,228 × 6,228 pairs, cached in `additive_exact_distances_v3.npy`) and each edge is labelled with a relationship taxonomy derived from which components differ. Node coordinates come from a density-preserving densMAP embedding of the exact distance matrix (3D, normalized to ~[-0.95, 0.95]); the density-preserving objective spreads minerals far more evenly across the map than a plain layout, making compositional regions easier to explore.
 
 ## Running it
 
